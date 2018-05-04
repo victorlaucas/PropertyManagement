@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 import NewsletterArchive from './newsletter_archive';
 
 class Newsletter extends Component {
-
+    
     componentDidMount() {
         this.props.fetchNewsletterArchive();
     }
@@ -16,7 +16,7 @@ class Newsletter extends Component {
                       <div>
                         02 jan 18
                       </div>  
-                       <NewsletterArchive/>
+                       <NewsletterArchive archive={this.props.archive}/>
                 </div>
                 <div>
                     main content. the latest newsletter.
@@ -28,7 +28,6 @@ class Newsletter extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state.newsletter.archive);
     return { archive: state.newsletter.archive }
 }
 
