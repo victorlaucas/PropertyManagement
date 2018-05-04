@@ -16,6 +16,7 @@ import './style/main.scss';
 import Signin from  './components/auth/signin';
 import Signup from './components/auth/signup';
 
+import Newsletter from './components/newsletter/newsletter';
 
 function main() {
   ReactDOM.render(
@@ -25,6 +26,7 @@ function main() {
             <Switch>
               <Route path="/signin" component={Signin}></Route>
               <Route path="/signup" component={Signup}></Route>
+              <Route path="/newsletter" component={Newsletter}></Route>
             </Switch>
         </Header>
       </BrowserRouter>
