@@ -24,6 +24,8 @@ export function signinUser({email, password}) {
   }
 }
 
+//
+
 export function fetchNewsletterArchive(callback) {
   return function(dispatch) {
       axios.get(`${ROOT_URL}/newsletterArchive`, {
@@ -39,6 +41,16 @@ export function fetchNewsletterArchive(callback) {
   }
 }
 
+export function fetchNewsletterById(_id) {
+  return (
+      {
+          type: FETCH_NEWSLETTER_BY_ID,
+          payload: _id
+      }
+  )
+}
+
+//
 
 export function saveNewsletterEdit({title, body}, _id, callback) {
   return function(dispatch) {
@@ -53,11 +65,15 @@ export function saveNewsletterEdit({title, body}, _id, callback) {
   }
 }
 
-export function fetchNewsletterById(_id) {
-  return (
-      {
-          type: FETCH_NEWSLETTER_BY_ID,
-          payload: _id
-      }
-  )
+export function saveNewNewsletter({title, body}, callback) {
+  return function(dispatch) {
+      axios.post(`${ROOT_URL}/newsletter/add`, {title, body}, {
+          headers: { authorization: localStorage.getItem('token') }
+      }) 
+          .then(response => {
+              dispatch(fetchNewsletterArchive(() => {
+                  callback()
+              }))
+          })
+  }
 }

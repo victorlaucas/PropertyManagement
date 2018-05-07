@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from '../../actions';
+import { connect } from 'react-redux';
 
 class AddNewsletter extends Component {
 
@@ -15,10 +16,9 @@ class AddNewsletter extends Component {
     }
 
     handleFormSubmit({title, body}) {
-        console.log('trying to handle submit', title, body)
-        // this.props.saveNewsletterEdit({title, body}, this.props.match.params._id, () => {
-        //     this.props.history.push('/newsletter');
-        // })
+        this.props.saveNewNewsletter({title, body}, () => {
+            this.props.history.push('/newsletter');
+        })
     }
 
     render() {
@@ -42,4 +42,4 @@ AddNewsletter = reduxForm(
     }
 )(AddNewsletter);
 
-export default AddNewsletter;
+export default connect(null,actions)(AddNewsletter);
