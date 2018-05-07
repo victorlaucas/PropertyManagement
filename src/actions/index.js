@@ -38,6 +38,18 @@ export function fetchNewsletterArchive() {
   }
 }
 
+
+export function saveNewsletterEdit({title, body}, _id) {
+  return function(dispatch) {
+      axios.put(`${ROOT_URL}/newsletter/edit/${_id}`, {title, body}, {
+          headers: { authorization: localStorage.getItem('token') }
+      }) 
+          .then(response => {
+              
+          })
+  }
+}
+
 export function fetchNewsletterById(_id) {
   return (
       {
