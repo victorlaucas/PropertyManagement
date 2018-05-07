@@ -11,11 +11,16 @@ class EditNewsletter extends Component {
     }
     
     renderInput(field) {
-        return <input className="form-control" {...field.input} type="field.type"/>
+        return (
+            <div>
+                <label htmlFor={field.input.name}>{field.input.name}</label>
+                <input className="form-control" {...field.input} />
+            </div>
+        ) 
     }
 
     handleFormSubmit({title, body}) {
-        console.log('trying to handle submit')
+        console.log('trying to handle submit', title, body)
     }
 
     render() {
@@ -23,10 +28,8 @@ class EditNewsletter extends Component {
 
         return (
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-                <label htmlFor="title">Title</label>
                 <Field name="title" component={this.renderInput} type="text"/>
-                <label htmlFor="body">Body</label>
-                <Field name="body" component={this.renderInput} type="text"/>
+                <Field name="body" component={this.renderInput} type="textarea"/>
 
                 <Link to="/newsletter"><div>Cancel</div></Link>
                 <button action="submit" className="btn btn-primary">Save</button>
@@ -36,10 +39,14 @@ class EditNewsletter extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state.newsletter.fetchedItem)
-    return { fetchedItem: state.newsletter.fetchedItem } 
+    return { initialValues: state.newsletter.fetchedItem } 
 }
 
-EditNewsletter = reduxForm({form: "editNewsletter"})(EditNewsletter)
+EditNewsletter = reduxForm(
+    {
+        form: "editNewsletter",
+        enableReinitialize: true
+    }
+)(EditNewsletter)
 
 export default connect(mapStateToProps, actions)(EditNewsletter);
