@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class EditNewsletter extends Component {
+
+    componentDidMount() {
+        this.props.fetchNewsletterById(this.props.match.params._id)
+    }
     
     renderInput(field) {
         return <input className="form-control" {...field.input} type="field.type"/>
@@ -32,7 +36,8 @@ class EditNewsletter extends Component {
 }
 
 function mapStateToProps(state) {
-    return { state } 
+    console.log(state.newsletter.fetchedItem)
+    return { fetchedItem: state.newsletter.fetchedItem } 
 }
 
 EditNewsletter = reduxForm({form: "editNewsletter"})(EditNewsletter)
