@@ -21,7 +21,9 @@ class EditNewsletter extends Component {
 
     handleFormSubmit({title, body}) {
         console.log('trying to handle submit', title, body)
-        this.props.saveNewsletterEdit({title, body},this.props.match.params._id)
+        this.props.saveNewsletterEdit({title, body},this.props.match.params._id, () => {
+            this.props.history.push('/newsletter');
+        })
     }
 
     render() {
