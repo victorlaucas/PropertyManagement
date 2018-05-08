@@ -3,7 +3,8 @@ import {
   FETCH_NEWSLETTER_ARCHIVE,
   FETCH_NEWSLETTER_BY_ID,
 
-  SELECT_REQUEST_TYPE
+  SELECT_REQUEST_TYPE,
+  FETCH_SUPPORT_REQUESTS
 } from './types';
 
 import axios from 'axios';
@@ -88,5 +89,19 @@ export function selectRequestType(type) {
   return {
       type: SELECT_REQUEST_TYPE,
       payload: type
+  }
+}
+
+export function fetchSupportRequests() {
+  return function(dispatch) {
+      axios.get(`${ROOT_URL}/support-request`, {
+          headers: { authorization: localStorage.getItem('token') }
+      }) 
+          .then(response => {
+              dispatch({
+                  type: FETCH_SUPPORT_REQUESTS,
+                  payload: response.data
+              })
+          })
   }
 }
