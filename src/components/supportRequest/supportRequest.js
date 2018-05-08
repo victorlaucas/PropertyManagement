@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import InfoBox from '../infoBox';
 
 class SupportRequest extends Component { 
     render() {
@@ -9,7 +10,9 @@ class SupportRequest extends Component {
                     <div>Add Request</div>
                     <div className="row">
                         <div className="col-md-3">
-                            3 InfoBox components
+                            <InfoBox type="pending"/>
+                            <InfoBox type="in-progress"/>
+                            <InfoBox type="complete"/>
                         </div>
                         <div className="col-md-9">
                             support request content component - contains UL
