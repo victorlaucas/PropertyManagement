@@ -147,7 +147,26 @@ export function saveNewSupportRequest({title, body}, callback) {
 }
 
 export function saveNewSupportRequestStatus(_id, status) {
+  let newStatus = 'pending'
+  switch (status) {
+      case 'pending':
+          newStatus = 'in-progress';
+          break;
+      case 'in-progress':
+          newStatus = 'complete';
+          break;
+      case 'complete':
+          newStatus = 'pending';
+          break;
+      default: break;
+  }
   return function(dispatch) {
-      
+      axios.put(`${ROOT_URL}/support-request/update-status/${_id}`, {status: newStatus}, {
+          headers: { authorization: localStorage.getItem('token') }
+      })
+          .then(response => {
+              console.log(response.data);
+              dispatch(fetchSupportRequests())
+          })
   }
 }
