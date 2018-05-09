@@ -1,37 +1,54 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-class SupportRequestItem extends Component {
-    render() {
+class EditSupportRequest extends Component {
+
+    componentDidMount() {
+        this.props.fetchSupportRequestById(this.props.match.params._id)
+    }
+    
+    renderInput(field) {
         return (
-            <li>
-                <div>
-                    icon
-                </div>
-                <div>
-                    <div>
-                        <div>{this.props.title}</div>
-                        <div>{this.props.tenant} - Unit {this.props.unit}</div>
-                    </div>
-                    <div>
-                        arrow
-                    </div>
-                </div>
-                <div>
-                    action
-                </div>
-                <div>
-                    {this.props.date}
-                </div>
-                <a onClick={() => this.props.saveNewSupportRequestStatus(this.props._id, this.props.status)}>ChangeStatusButton</a>
-                <Link to={`/support-request/edit/${this.props._id}`}>
-                    <div>{this.props.body}</div>
-                </Link>
-            </li>
+            <div>
+                <label htmlFor={field.input.name}>{field.input.name}</label>
+                <input className="form-control" {...field.input} />
+            </div>
         ) 
+    }
+
+    handleFormSubmit({title, body}) {
+        this.props.saveSupportRequestEdit({title, body}, this.props.match.params._id, () => {
+            this.props.history.push('/support-request');
+        })
+    }
+
+    render() {
+        const { handleSubmit } = this.props;
+
+        return (
+            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                <Field name="title" component={this.renderInput} type="text"/>
+                <Field name="body" component={this.renderInput} type="textarea"/>
+                <img src={this.props.initialValues.imageUrl} alt="support request image attachment"/>
+                <Link to="/support-request"><div>Cancel</div></Link>
+                <button action="submit" className="btn btn-primary">Save</button>
+            </form>
+        )
     }
 }
 
-export default connect(null, actions)(SupportRequestItem);
+function mapStateToProps(state) {
+    return { initialValues: state.supportRequest.fetchedItem } 
+}
+
+EditSupportRequest = reduxForm(
+    {
+        form: "editSupportRequest",
+        enableReinitialize: true
+    }
+)(EditSupportRequest)
+
+export default connect(mapStateToProps, actions)(EditSupportRequest);
