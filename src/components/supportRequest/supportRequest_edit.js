@@ -7,7 +7,7 @@ import * as actions from '../../actions';
 class EditSupportRequest extends Component {
 
     componentDidMount() {
-        // this.props.fetchSupportRequestById(this.props.match.params._id)
+        this.props.fetchSupportRequestById(this.props.match.params._id)
     }
     
     renderInput(field) {
@@ -41,6 +41,7 @@ class EditSupportRequest extends Component {
 }
 
 function mapStateToProps(state) {
+    
     return { state }
     // return { initialValues: state.newsletter.fetchedItem } 
 }
