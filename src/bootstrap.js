@@ -25,6 +25,7 @@ import AddNewsletter from './components/newsletter/newsletter_add';
 
 import SupportRequest from './components/supportRequest/supportRequest';
 import EditSupportRequest from './components/supportRequest/supportRequest_edit';
+import AddSupportRequest from './components/supportRequest/supportRequest_add';
 
 function main() {
   ReactDOM.render(
@@ -43,6 +44,7 @@ function main() {
 
               <Route path="/support-request" exact component={SupportRequest}></Route>
               <Route path="/support-request/edit/:_id" component={EditSupportRequest}></Route>
+              <Route path="/support-request/add" component={AddSupportRequest}></Route>
 
             </Switch>
         </Header>
