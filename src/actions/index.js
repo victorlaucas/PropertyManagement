@@ -94,7 +94,7 @@ export function selectRequestType(type) {
   }
 }
 
-export function fetchSupportRequests() {
+export function fetchSupportRequests(callback) {
   return function(dispatch) {
       axios.get(`${ROOT_URL}/support-request`, {
           headers: { authorization: localStorage.getItem('token') }
@@ -104,6 +104,7 @@ export function fetchSupportRequests() {
                   type: FETCH_SUPPORT_REQUESTS,
                   payload: response.data
               })
+              if(callback) { callback() }
           })
   }
 }
@@ -115,4 +116,17 @@ export function fetchSupportRequestById(_id) {
           payload: _id
       }
   )
+}
+
+export function saveSupportRequestEdit({title, body}, _id, callback) {
+  return function(dispatch) {
+      axios.put(`${ROOT_URL}/support-request/edit/${_id}`, {title, body}, {
+          headers: { authorization: localStorage.getItem('token') }
+      }) 
+          .then(response => {
+              dispatch(fetchSupportRequests(() => {
+                  callback()
+              }))
+          })
+  }
 }

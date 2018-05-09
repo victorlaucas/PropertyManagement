@@ -20,9 +20,9 @@ class EditSupportRequest extends Component {
     }
 
     handleFormSubmit({title, body}) {
-        // this.props.saveSupportRequestById({title, body}, this.props.match.params._id, () => {
-        //     this.props.history.push('/support-request');
-        // })
+        this.props.saveSupportRequestEdit({title, body}, this.props.match.params._id, () => {
+            this.props.history.push('/support-request');
+        })
     }
 
     render() {
