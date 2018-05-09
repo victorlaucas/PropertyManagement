@@ -16,9 +16,9 @@ class AddSupportRequest extends Component {
     }
 
     handleFormSubmit({title, body}) {
-        // this.props.saveNewNewsletter({title, body}, () => {
-        //     this.props.history.push('/newsletter');
-        // })
+        this.props.saveNewSupportRequest({title, body}, () => {
+            this.props.history.push('/support-request');
+        })
     }
 
     render() {
