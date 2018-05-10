@@ -1,13 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+import addHeaderBorder from '../HOC/addHeaderBorder';
+import addTitle from '../HOC/addTitle';
 
 class Signup extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Sign up form</h1>
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+   
+            </div>
+        )
+    }
 }
 
-export default Signup;
+export default addHeaderBorder(addTitle(Signup, 'Create Account'));
