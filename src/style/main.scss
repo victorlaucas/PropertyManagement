@@ -15,7 +15,10 @@ body {
   font-family: "Encode Sans";
 }
 
+$color-red: #BA0000;
+
 @import './header';
 @import './addHeaderBorder';
 @import './addTitle';
 @import './signin';
+@import './addHeaderNav';

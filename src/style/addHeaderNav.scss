@@ -1,0 +1,24 @@
+.add-nav {
+  
+      display: flex;
+      justify-content: center;
+      a {
+          text-decoration-color: transparent;
+      }
+  
+      span {
+          transition: all .1s ease;
+          border-bottom: 2px solid transparent;
+          padding-bottom: 13px;
+          &:hover {
+              border-bottom: 2px solid $color-red;
+              color: $color-red;
+          }
+          margin: 0 23px;
+          color: #4D4D4D;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          text-align: center;
+      }
+  }

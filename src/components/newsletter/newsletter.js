@@ -6,6 +6,8 @@ import * as actions from '../../actions';
 import NewsletterArchive from './newsletter_archive';
 import NewsletterContent from './newsletter_content';
 
+import addHeaderNav from '../HOC/addHeaderNav';
+
 class Newsletter extends Component {
     
     componentDidMount() {
@@ -21,7 +23,6 @@ class Newsletter extends Component {
                     </div> 
 
                     <NewsletterArchive archive={this.props.archive}/>
-      
                 </div>
                 <div className="col-md-9">
                     <NewsletterContent latestItem={this.props.latestItem} />
@@ -38,5 +39,7 @@ function mapStateToProps(state) {
         latestItem: state.newsletter.latestItem
     }
 }
+
+Newsletter = addHeaderNav(Newsletter)
 
 export default connect(mapStateToProps, actions)(Newsletter);
