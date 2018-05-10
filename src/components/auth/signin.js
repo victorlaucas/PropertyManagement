@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
+import addHeaderBorder from '../HOC/addHeaderBorder';
 
 class Signin extends Component {
 
@@ -35,4 +36,4 @@ function mapStateToProps(state) {
 
 Signin = reduxForm({form: "signin"})(Signin)
 
-export default connect(mapStateToProps, actions)(Signin);
+export default connect(mapStateToProps, actions)(addHeaderBorder(Signin));
