@@ -8,7 +8,7 @@ import addTitle from '../HOC/addTitle';
 class Signin extends Component {
 
     renderInput(field) {
-        return <input className="form-control" {...field.input} type="field.type"/>
+        return <input {...field.input} type="field.type"/>
     }
 
     handleFormSubmit({email, password}) {
@@ -20,12 +20,15 @@ class Signin extends Component {
 
         return (
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-                <label htmlFor="email">Email</label>
-                <Field name="email" component={this.renderInput} type="text"/>
-                <label htmlFor="password">Password</label>
-                <Field name="password" component={this.renderInput} type="password"/>
-
-                <button action="submit" className="btn btn-primary">Sign In</button>
+                <div className="email">
+                    <label htmlFor="email">Email</label>
+                    <Field name="email" component={this.renderInput} type="text"/>
+                </div>
+                <div className="password">
+                    <label htmlFor="password">Password</label>
+                    <Field name="password" component={this.renderInput} type="password"/>
+                </div>
+                <button action="submit">Sign In</button>
             </form>
         )
     }
