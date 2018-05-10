@@ -6,7 +6,7 @@ const addHeaderBorder = (Child) => {
             return (
                 <div>
                     <div className="add-border"></div>
-                    <Child />
+                    <Child {...this.props} />
                 </div>
             )
         }
