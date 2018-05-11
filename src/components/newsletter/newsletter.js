@@ -18,8 +18,13 @@ class Newsletter extends Component {
         return (
             <div className="newsletter">
                 <div className="newsletter__side">
-                    <div style={{width: '200px', height: '200px', backgroundColor: 'skyblue'}}>
-                        02 jan 18
+                    <div className="info-box">
+                        <div className="info-box__text">
+                            02
+                        </div>
+                        <div className="info-box__sub-text">
+                            JAN 2018
+                        </div>
                     </div> 
 
                     <NewsletterArchive archive={this.props.archive}/>

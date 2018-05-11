@@ -1,0 +1,26 @@
+.info-box {
+  box-sizing: border-box;
+  height: 161px;
+  width: 161px;
+  border: 1px solid $color-red;
+  border-radius: 5px;
+
+  color: $color-red;
+  font-weight: bold;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .info-box__text {
+      font-size: 65px;
+      line-height: 81px;
+      margin-bottom: 8px;
+  }    
+
+  .info-box__sub-text {
+      font-size: 18px;
+      line-height: 23px;
+  }
+}

@@ -11,11 +11,16 @@ class InfoBox extends Component {
 
     render() {
         return (
-            <div className="info-box">
-                <a onClick={() => this.handleSelected()}>
-                    the type of this InfoBox is {this.props.type}
-                </a>
-            </div>
+            <a onClick={() => this.handleSelected()}>
+                <div className={`info-box`}>
+                    <div className="info-box__text">
+                        02
+                    </div>
+                    <div className="info-box__sub-text">
+                        {this.props.type}
+                    </div>
+                </div> 
+            </a>
         )
     }
 }
