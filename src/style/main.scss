@@ -1,21 +1,22 @@
+$color-red: #BA0000;
+$color-gray-one: #4D4D4D;
+
 ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .info-box {
-  width: 250px;
-  height: 250px;
-  border: 1px solid #BA0000;
-  margin: 25px;
+    width: 250px;
+    height: 250px;
+    border: 1px solid $color-red;
+    margin: 25px;
 }
 
 body {
-  margin: 39px 140px;
-  font-family: "Encode Sans";
+    margin: 39px 140px;
+    font-family: "Encode Sans";
 }
-
-$color-red: #BA0000;
 
 @import './header';
 @import './addHeaderBorder';
