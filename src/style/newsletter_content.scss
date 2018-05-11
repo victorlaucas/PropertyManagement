@@ -1,9 +1,14 @@
 
+
 .newsletter-content {
   height: 665px;
   width: 961px;
   border: 1px solid #E6E6E6;
   border-radius: 5px;
+
+  .newsletter__side {
+      margin-right: 39px;
+  }
 
   .image-container {
       img {
