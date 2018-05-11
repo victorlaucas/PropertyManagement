@@ -2,6 +2,12 @@
   
       display: flex;
       justify-content: center;
+      
+      .add-nav__selected {
+          border-bottom: 2px solid $color-red;
+          color: $color-red;
+      }
+  
       a {
           text-decoration-color: transparent;
       }

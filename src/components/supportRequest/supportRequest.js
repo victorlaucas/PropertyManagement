@@ -46,6 +46,6 @@ function mapStateToProps(state) {
     return { state: state.supportRequest } 
 }
 
-SupportRequest = addHeaderNav(SupportRequest);
+SupportRequest = addHeaderNav(SupportRequest, 'support-request');
 
 export default connect(mapStateToProps, actions)(SupportRequest);
