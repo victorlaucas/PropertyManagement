@@ -1,0 +1,54 @@
+.add-newsletter-form {
+  width: 100%;
+  position: relative;
+  
+  .add-newsletter-form__title {
+      margin-top: 41px;
+  }
+  
+  .add-newsletter-form__body {
+      margin-top: 20px;
+  }
+
+  div {
+      transform: translateX(-64.5px);
+      display: flex;
+      label {
+          width: 260px;
+      }
+      input, textarea {
+          width: 760px;
+      }
+  }
+}
+
+.add-newsletter-form__cancel {
+  position: absolute;
+  right: 90px;
+  top: -36px;
+
+  height: 24px;
+  width: 130px;
+  border: 1px solid $color-gray-one;
+  border-radius: 16px;
+  color: $color-gray-one;
+  font-weight: 100;
+
+  p {
+      margin: 0 auto;
+  }
+}
+
+.add-newsletter-form__submit {
+  position: absolute;
+  right: 0;
+  top: -36px;
+
+  height: 24px;
+  width: 130px;
+  border: 1px solid white;
+  border-radius: 16px;
+  color: white;
+
+  background-color: $color-red;
+}

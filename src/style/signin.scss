@@ -37,7 +37,7 @@ form {
       margin-top: 41px;
   }
 
-  button {
+  .signin-button {
       margin-top: 87px;
       height: 40px;
       width: 216.67px;
@@ -50,28 +50,5 @@ form {
       line-height: 28px;
       text-align: center;
 
-  }
-}
-
-.add-newsletter-form {
-  width: 100%;
-
-  .add-newsletter-form__title {
-      margin-top: 41px;
-  }
-  
-  .add-newsletter-form__body {
-      margin-top: 20px;
-  }
-
-  div {
-      transform: translateX(-64.5px);
-      display: flex;
-      label {
-          width: 260px;
-      }
-      input, textarea {
-          width: 760px;
-      }
   }
 }

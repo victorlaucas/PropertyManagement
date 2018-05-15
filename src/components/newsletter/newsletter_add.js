@@ -29,11 +29,14 @@ class AddNewsletter extends Component {
                     <label htmlFor="body">Body</label>
                     <Field name="body" component={(field) => <textarea {...field.input} />} type="textarea"/>
                 </div>
-                <div>
-                    <Link to="/newsletter"><div>Cancel</div></Link>
-                </div>
-                
-                <button action="submit">Save</button>
+         
+                <Link to="/newsletter">
+                    <div className="add-newsletter-form__cancel">
+                        <p>Cancel</p>
+                    </div>
+                </Link>
+   
+                <button className="add-newsletter-form__submit" action="submit">Submit</button>
             </form>
         )
     }
