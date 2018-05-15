@@ -15,8 +15,8 @@ class NewsletterDetail extends Component {
     renderFetchedItem() {
         if(this.props.fetchedItem) {
             return (
-                <div>
-                    <div>
+                <div className="newsletter-content">
+                    <div className="image-container">
                         <img src={this.props.fetchedItem.imageUrl}/>
                         <h2>{this.props.fetchedItem.title}</h2>
                     </div>
@@ -30,13 +30,17 @@ class NewsletterDetail extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-md-3">
-                    <div style={{width: '200px', height: '200px', backgroundColor: 'skyblue'}}>
-                        02 jan 18
-                    </div> 
-                </div>
-                <div className="col-md-9">
+            <div className="newsletter-detail">
+                <div className="info-box">
+                    <div className="info-box__text">
+                        02
+                    </div>
+                    <div className="info-box__sub-text">
+                        JAN 2018
+                    </div>
+                </div> 
+
+                <div>
                     {this.renderFetchedItem()}
                 </div>
             </div>
